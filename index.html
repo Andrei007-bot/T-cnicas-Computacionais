@@ -1,0 +1,500 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Um jogo interativo sobre o futuro da inteligência artificial.">
+
+    <meta name="theme-color" content="#0c1422">
+
+    <title>O Futuro da IA</title>
+
+    <!-- Arquivo de estilos -->
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+    <div class="page-shell">
+
+        <!-- CABEÇALHO -->
+
+        <header class="topbar">
+
+            <a class="brand" href="#main-title">
+
+                <span class="brand-mark">✳</span>
+
+                <span>FUTURO<span class="brand-accent">.IA</span></span>
+
+            </a>
+
+            <span class="topbar-note">
+                UMA HISTÓRIA SOBRE ESCOLHAS
+            </span>
+
+        </header>
+
+
+        <main id="main-content">
+
+            <!-- ================================= -->
+            <!-- TELA INICIAL -->
+            <!-- ================================= -->
+
+            <section
+                id="intro-screen"
+                class="screen intro-screen"
+                aria-labelledby="main-title"
+            >
+
+                <div class="intro-copy">
+
+                    <p class="eyebrow">
+
+                        <span class="status-dot"></span>
+
+                        ANO 2042 · CONSELHO DO AMANHÃ
+
+                    </p>
+
+
+                    <h1 id="main-title">
+
+                        O futuro da IA<br>
+
+                        <span>está em suas mãos.</span>
+
+                    </h1>
+
+
+                    <p class="intro-text">
+
+                        A inteligência artificial transformou o mundo.
+
+                        Agora, uma decisão precisa ser tomada:
+
+                        que tipo de futuro a humanidade vai construir
+
+                        ao lado dela?
+
+                    </p>
+
+
+                    <!-- INFORMAÇÕES DO JOGO -->
+
+                    <div class="intro-facts">
+
+                        <div class="fact">
+
+                            <strong>03</strong>
+
+                            <span>decisões</span>
+
+                        </div>
+
+
+                        <div class="fact-divider"></div>
+
+
+                        <div class="fact">
+
+                            <strong>04</strong>
+
+                            <span>finais possíveis</span>
+
+                        </div>
+
+
+                        <div class="fact-divider"></div>
+
+
+                        <div class="fact">
+
+                            <strong>∞</strong>
+
+                            <span>possibilidades</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BOTÃO INICIAR -->
+
+                    <button
+    id="start-button"
+    class="primary-button"
+    type="button"
+>
+    Começar a história
+    <span>→</span>
+</button>
+
+
+                    <p class="small-note">
+
+                        Não existe uma resposta perfeita.
+
+                        Cada escolha tem consequências.
+
+                    </p>
+
+                </div>
+
+
+                <!-- ELEMENTO VISUAL -->
+
+                <div class="intro-art" aria-hidden="true">
+
+                    <div class="orbit orbit-one"></div>
+
+                    <div class="orbit orbit-two"></div>
+
+                    <div class="orbit orbit-three"></div>
+
+
+                    <div class="core-glow"></div>
+
+
+                    <div class="ai-core">
+
+                        <span>IA</span>
+
+                    </div>
+
+
+                    <span class="orbit-tag tag-one">
+                        ÉTICA
+                    </span>
+
+                    <span class="orbit-tag tag-two">
+                        FUTURO
+                    </span>
+
+                    <span class="orbit-tag tag-three">
+                        HUMANIDADE
+                    </span>
+
+
+                    <span class="spark spark-one">✦</span>
+
+                    <span class="spark spark-two">✧</span>
+
+                    <span class="spark spark-three">·</span>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================================= -->
+            <!-- TELA DO JOGO -->
+            <!-- ================================= -->
+
+            <section
+                id="game-screen"
+                class="screen game-screen"
+                aria-labelledby="chapter-title"
+                hidden
+            >
+
+                <!-- TÍTULO DO CAPÍTULO -->
+
+                <div class="game-heading">
+
+                    <div>
+
+                        <p class="eyebrow" id="chapter-label">
+                            CAPÍTULO 01
+                        </p>
+
+                        <h2 id="chapter-title">
+                            Uma nova era
+                        </h2>
+
+                    </div>
+
+
+                    <p class="decision-count" id="decision-count">
+
+                        DECISÃO 01
+
+                        <span>/ 03</span>
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- PROGRESSO -->
+
+                <div
+                    class="progress-track"
+                    id="progress-track"
+                    role="progressbar"
+                    aria-label="Progresso da história"
+                    aria-valuemin="0"
+                    aria-valuemax="3"
+                    aria-valuenow="0"
+                >
+
+                    <div
+                        class="progress-fill"
+                        id="progress-fill"
+                    ></div>
+
+                </div>
+
+
+
+                <!-- HISTÓRIA -->
+
+                <article class="story-card">
+
+                    <div class="story-symbol">
+
+                        <span id="story-symbol-text">
+                            01
+                        </span>
+
+                    </div>
+
+
+                    <div class="story-content">
+
+                        <p class="story-kicker">
+                            O CENÁRIO
+                        </p>
+
+
+                        <p
+                            id="story-text"
+                            class="story-text"
+                        ></p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PERGUNTA -->
+
+                <section
+                    class="choice-section"
+                    aria-labelledby="question-title"
+                >
+
+                    <p class="eyebrow choice-eyebrow">
+                        SUA DECISÃO
+                    </p>
+
+
+                    <h3 id="question-title"></h3>
+
+
+                    <!-- ALTERNATIVAS GERADAS PELO JAVASCRIPT -->
+
+                    <div
+                        id="choices-container"
+                        class="choices-container"
+                    ></div>
+
+                </section>
+
+
+
+                <!-- CONSEQUÊNCIA -->
+
+                <section
+                    id="feedback-panel"
+                    class="feedback-panel"
+                    aria-live="polite"
+                    hidden
+                >
+
+                    <p class="feedback-label">
+
+                        <span aria-hidden="true">✦</span>
+
+                        CONSEQUÊNCIA DA ESCOLHA
+
+                    </p>
+
+
+                    <p
+                        id="feedback-text"
+                        class="feedback-text"
+                    ></p>
+
+
+                    <button
+                        id="continue-button"
+                        class="primary-button"
+                        type="button"
+                    >
+
+                        Continuar
+
+                        <span aria-hidden="true">→</span>
+
+                    </button>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- ================================= -->
+            <!-- TELA FINAL -->
+            <!-- ================================= -->
+
+            <section
+                id="ending-screen"
+                class="screen ending-screen"
+                aria-labelledby="ending-title"
+                hidden
+            >
+
+                <p class="eyebrow">
+
+                    <span class="status-dot"></span>
+
+                    RELATÓRIO DO CONSELHO · 2042
+
+                </p>
+
+
+                <div class="ending-icon">
+                    ✧
+                </div>
+
+
+                <p class="ending-label">
+                    O FUTURO QUE VOCÊ AJUDOU A CRIAR
+                </p>
+
+
+                <h2 id="ending-title"></h2>
+
+
+                <p
+                    id="ending-text"
+                    class="ending-text"
+                ></p>
+
+
+
+                <!-- INDICADORES -->
+
+                <div class="results-card">
+
+                    <div class="results-heading">
+
+                        <h3>
+                            O impacto das suas decisões
+                        </h3>
+
+                        <span>
+                            SEUS INDICADORES
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="score-list"
+                        id="score-list"
+                    ></div>
+
+                </div>
+
+
+
+                <!-- REFLEXÃO -->
+
+                <div class="reflection-box">
+
+                    <span class="reflection-mark">
+                        “
+                    </span>
+
+
+                    <p id="ending-reflection"></p>
+
+                </div>
+
+
+
+                <!-- REINICIAR -->
+
+                <button
+                    id="restart-button"
+                    class="primary-button"
+                    type="button"
+                >
+
+                    Jogar novamente
+
+                    <span aria-hidden="true">↻</span>
+
+                </button>
+
+
+                <p class="small-note ending-note">
+
+                    Experimente outras escolhas e descubra um novo caminho.
+
+                </p>
+
+            </section>
+
+        </main>
+
+
+
+        <!-- ================================= -->
+        <!-- RODAPÉ -->
+        <!-- ================================= -->
+
+        <footer class="footer">
+
+            <span>
+                O FUTURO DA IA
+            </span>
+
+            <span>
+                AS ESCOLHAS DE HOJE CONSTROEM O AMANHÃ.
+            </span>
+
+        </footer>
+
+    </div>
+
+
+
+    <!-- ================================= -->
+    <!-- ARQUIVOS JAVASCRIPT -->
+    <!-- ================================= -->
+
+    <!-- IMPORTANTE:
+         Primeiro carregamos as perguntas.
+         Depois carregamos a lógica do jogo.
+         Os dois arquivos ficam no final do body.
+    -->
+
+    <script src="./script.js"></script>
+
+
+</body>
+
+</html>
